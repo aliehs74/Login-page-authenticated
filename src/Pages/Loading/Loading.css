@@ -1,0 +1,12 @@
+.Loading {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.Loading svg {
+  height: 50vh;
+}
