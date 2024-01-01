@@ -4,8 +4,8 @@ import { useContextCustom } from "../../Context/Context";
 import { handleChange, handleSubmit } from "../../Services/handleEvent";
 import Loading from "../Loading/Loading";
 import { get } from "../../Services/Fetching";
+import Tooltip from "@mui/material/Tooltip";
 //
-
 //
 export default function Login() {
   const [state, dispatch] = useContextCustom();
@@ -24,7 +24,7 @@ export default function Login() {
       get(storeToken, dispatch); //check authorization token
       setToken(storeToken);
     }
-  }, [dispatch]);// prevent to reload when the user was login already
+  }, [dispatch]); // prevent to reload when the user was login already
 
   //
   return (
@@ -63,12 +63,29 @@ export default function Login() {
               }}
               value={password}
             />
-            <button
-              type="submit"
-              className="btn btn-primary btn-block btn-large"
-            >
-              Submit
-            </button>
+            <div className="btn_tip">
+              <button
+                type="submit"
+                className="btn btn-primary btn-block btn-large"
+              >
+                Submit
+              </button>
+
+              <Tooltip
+                title="Username & Password: admin"
+                arrow
+                placement="bottom-start"
+              >
+                <span className="tooltiip">
+                  <img
+                    src="https://s3.lightboxcdn.com/vendors/906a5d64-2cda-407f-a2d5-6cf94c06ddbe/uploads/274a7932-a0fd-4a89-9f58-a83cc44112ca/info.svg"
+                    width="30"
+                    height="30"
+                    alt="info"
+                  />
+                </span>
+              </Tooltip>
+            </div>
           </form>
         </div>
       )}
